@@ -4,6 +4,7 @@
 	"description": "A basic extension that counts the number of tabs open.",
 	"version": "1.0",
 
+	//adds an icon next to the address bar
 	"browser_action": {
 		"default_icon": "icon.png",
 		"default_popup": "popup.html",
@@ -12,5 +13,14 @@
 	"permissions": [
 		"activeTab",
 		"storage"
-	]
+	],
+
+	"content_scripts": [
+  {
+    "matches": [
+      "https://piazza.com/*"
+    ],
+    "js": ["content.js"]
+  }
+]
 }
