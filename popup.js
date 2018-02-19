@@ -12,7 +12,7 @@ function getCurrentTabUrl(callback) {
   // Query filter to be passed to chrome.tabs.query - see
   // https://developer.chrome.com/extensions/tabs#method-query
   var queryInfo = {
-    active: true,
+    active: true,   
     currentWindow: true
   };
 
@@ -46,6 +46,23 @@ function getCurrentTabUrl(callback) {
   // });
   // alert(url); // Shows "undefined", because chrome.tabs.query is async.
 }
+
+//function that returns the current number of tabs open in the window
+//Currently in progress and is not working at the moment
+function getNumOfTags()
+{
+   var queryInfo = {
+    currentWindow: true
+  };
+
+  chrome.tabs.query(queryInfo, (tabs) => {
+    var numOfTabs = tabs.length; 
+
+  console.assert(typeof numOfTabs == 'number', "tabs.length should return a number");  
+  })
+
+}
+
 
 /**
  * Change the background color of the current page.

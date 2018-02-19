@@ -1,26 +1,38 @@
 {
 	"manifest_version": 2,
 	"name": "PrettyTabby",
-	"description": "A basic extension that counts the number of tabs open.",
+	"description": "A basic extension that currently makes one aware of using social media to procrastinate",
 	"version": "1.0",
+
+	"permissions": [
+		"tabs",
+		"activeTab",
+		"storage",
+		"alarms",
+		"notifications"
+	],
 
 	//adds an icon next to the address bar
 	"browser_action": {
 		"default_icon": "icon.png",
 		"default_popup": "popup.html",
-		"default_title": "Click here!"
+		"default_title": "Hello it me!"
 	},
-	"permissions": [
-		"activeTab",
-		"storage"
-	],
+
+	"background": {
+	 	"scripts": ["eventPage.js"],
+	 	"persistent": false
+	},
 
 	"content_scripts": [
-  {
+    {
     "matches": [
-      "https://piazza.com/*"
+      "https://*.tumblr.com/*",
+      "https://*.facebook.com/*",
+      "https://*.twitter.com/*",
+      "https://*.instagram.com/*"
     ],
-    "js": ["content.js"]
-  }
-]
+    "js": ["jquery.min.js", "content.js"]
+    }    
+    ]
 }
