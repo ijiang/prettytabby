@@ -1,0 +1,1 @@
+this file was made to test if git configurations were set up correctly or not
